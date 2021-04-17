@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.objects.XObject;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -152,18 +154,24 @@ public class TestDemo1 {
 
     public static void main5(String[] args) {
         //int a;
-        //System.out.println(a);//err 未初始化
-        int[] array=null;//null表示不指向任何对象
-        System.out.println(array);
-        //int[] array2;
+        //System.out.println(a);//err  a为局部变量，使用前要初始化
+        int[] array=null;//null表示不指向任何对象 也可以理解为引用类型的0值就是null
+        System.out.println(array);//报异常 因为没有开辟空间
+
+        //int[] array2;//也是局部变量  局部变量是从作用域来考虑的
         //System.out.println(array2);//err 未初始化
+        //局部变量要初始化才可以使用
+
+
     }
     public static void main4(String[] args) {
         int[] array={1,2,3,4,5};
         System.out.println(array[12]);
         //会报数组越界异常
     }
+
     public static void main3(String[] args) {
+        //arrary arrary2 arrary3 是临时变量 存放在Java虚拟机栈
         //其实栈里的array里面存的值是数值是堆上数组的地址
         //所以array是引用类型
         int[] array={1,2,3,4,5};
@@ -174,13 +182,37 @@ public class TestDemo1 {
         int[] array3=new int[]{1,2,3,4,5};
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
+        int[] array = {10,20,30,4,5,6,7};
+        //1.遍历数组的方式
+        for(int i = 0;i<array.length;i++) {
+            System.out.println(array[i] + " ");
+        }
+        System.out.println();
+        System.out.println("===========");
+        //2.另一种遍历数组的方式  for-each
+        //for(表达式1：表达式2) {}  表达式1：元素数据类型 表达式2：数组名
+        for(int x: array) {
+            System.out.println(x + " ");
+        }
+        System.out.println();
+        //3.使用操作数组的工具类来进行数组的打印
+        System.out.println("===========");
+        System.out.println(Arrays.toString(array));
+
+    }
+    public static void main1(String[] args) {
         //定义一组数据，这组数据都是相同类型 —— 数组
         int a = 10;
         int a2 = 20;
         int a3 = 30;
         int a4 = 40;
-        int[] array = {10,20,30,40};//数组类型 数组名 = {一组数据，这组数据中的每个数据用逗号隔开}
+        int[] array = {10,20,30,40};//定义了一个数组且初始化
+        //数组类型 数组名 = {一组数据，这组数据中的每个数据用逗号隔开}
         //整形数组
+
+        int[] array2;//定义一个数组 默认大小为0
+        int[] array3 = new int[10];//定义一个数组 开辟大小为10*int大小的空间，元素默认为0
+        int[] array4 = new int[]{1,2,3};
     }
 }
