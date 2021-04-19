@@ -159,8 +159,8 @@ public class TestDemo1 {
         System.out.println(array);//报异常 因为没有开辟空间
 
         //int[] array2;//也是局部变量  局部变量是从作用域来考虑的
-        //System.out.println(array2);//err 未初始化
-        //局部变量要初始化才可以使用
+        //System.out.println(array2);//err array2未开辟空间
+        //局部变量对基本类型要初始化才可以使用，对引用类型要开辟空间才可以使用
 
 
     }

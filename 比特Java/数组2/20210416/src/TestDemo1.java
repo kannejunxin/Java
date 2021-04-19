@@ -8,6 +8,43 @@ import java.util.Arrays;
  * Time: 19:05
  */
 public class TestDemo1 {
+    //作业四：数组转字符串
+    public static String toString(int[] arr) {
+        if(arr==null) {
+            return "null";
+        }
+        String ret ="[";
+        for(int i = 0; i<arr.length;i++) {
+            if(i!=arr.length-1) {
+                ret+=arr[i]+",";
+            }else {
+                ret+=arr[i];
+            }
+        }
+        return ret+="]";
+    }
+    public static void main_h4(String[] args) {
+        int[] array = {1,2,3,4};
+        String ret = toString(array);
+        System.out.println(ret);
+    }
+    //作业三：实现一个方法 copyOf, 对一个整型数组进行拷贝, 得到一个新的数组.  前两个作业就是课程代码，所以就不重复了
+    public static int[] copyOf(int[] arr,int length) {
+        int[] ret=new int[length];
+        for(int i = 0; i<ret.length; i++) {
+            if(i<arr.length) {
+                ret[i]=arr[i];
+            }else {
+                ret[i]=0;
+            }
+        }
+        return ret;
+    }
+    public static void main_h3(String[] args) {
+        int[] array = {1,2,3,4};
+        int[] copy = copyOf(array,5);
+        System.out.println(Arrays.toString(copy));
+    }
 
     //奇数前 偶数后
     public static void func4(int[] arr) {
@@ -39,7 +76,7 @@ public class TestDemo1 {
             j--;
         }
     }
-    public static void main(String[] args) {
+    public static void main10(String[] args) {
         int[] array = {1,2,3,4};
         reverse(array);
         System.out.println(Arrays.toString(array));
@@ -158,7 +195,7 @@ public class TestDemo1 {
     //找元素
     public static void main3(String[] args) {
         int[] arr={1,2,5,12,17};
-        System.out.println(findNumIndex(arr, 7));
+        //System.out.println(findNumIndex(arr, 7));
         System.out.println(findNumIndex2(arr, 17));
     }
 
