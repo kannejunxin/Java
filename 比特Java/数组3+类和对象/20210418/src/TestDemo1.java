@@ -19,7 +19,7 @@ public class TestDemo1 {
         }
     }
     public static void main7(String[] args) {
-        //不规则二维数组
+
         int[][] array1 = new int[2][];
         for(int i = 0; i<array1.length;i++) {
             for( int j=0;j<array1[i].length;j++) {
@@ -28,6 +28,7 @@ public class TestDemo1 {
             System.out.println();
         }//会空指针异常  因为array1[0] array1[1]存放的是null
 
+        //不规则二维数组
         array1[0] = new int[3];
         array1[1] = new int[2];
         for(int i = 0; i<array1.length;i++) {
@@ -67,7 +68,7 @@ public class TestDemo1 {
     //二维数组
     public static void main5(String[] args) {
         int[][] array = {{1,2,3},{4},{5,6}};
-        int[][] array2 = new int[][]{{1,2,3},{4},{5,6}};
+        int[][] array2 = new int[][]{{1,2,3},{4},{5,6}};//不能在【】【】写数字
         int[][] array3 = new int[2][];//行号必须指定
         //int[][] array4 = new int[][3];//err
         int[][] array5 = new int[2][3];
@@ -126,6 +127,8 @@ public class TestDemo1 {
         }
     }
     public static void main1(String[] args) {
-
+        int[] array = {10,5,2,12,6};
+        bubbleSort(array);
+        System.out.println(Arrays.toString(array));
     }
 }
