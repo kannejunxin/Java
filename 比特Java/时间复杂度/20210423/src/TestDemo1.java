@@ -57,16 +57,16 @@ class Calculator {
     }
 
     public int add() {
-        return num1+num2;
+        return this.num1+this.num2;
     }
     public int sub() {
-        return num1-num2;
+        return this.num1-this.num2;
     }
     public int mul() {
-        return num1*num2;
+        return this.num1*this.num2;
     }
     public double dev() {
-        return num1*1.0/num2;
+        return this.num1*1.0/this.num2;
     }
 
 }
@@ -80,7 +80,7 @@ public class TestDemo1 {
         myValue1.val = myValue2.val;
         myValue2.val = tmp;
     }
-    public static void main(String[] args) {
+    public static void main4(String[] args) {
         MyValue myValue1 = new MyValue();
         MyValue myValue2 = new MyValue();
         myValue1.val=10;
@@ -100,7 +100,57 @@ public class TestDemo1 {
         System.out.println(cal.dev());
     }
 
-    public static void swap2(int[][] array) {
+
+
+
+    public static void fun(int[] array) {
+        int left = 0;
+        int right = array.length-1;
+        while(left<right) {
+            if(array[left]%2!=1) {
+                left++;
+            }else if(array[right]%2!=0) {
+                right--;
+            }
+            if(left<right) {
+                int temp = array[left];
+                array[left]=array[right];
+                array[right]=temp;
+            }
+        }
+    }
+    public static void main_h2(String[] args) {
+        int[] array1 = { 1,2,3,4,5,6,7,8,9,10};
+        System.out.println(Arrays.toString(array1));
+        fun(array1);
+        System.out.println(Arrays.toString(array1));
+    }
+    public static void swap(int[] array1,int[] array2) {
+        if(array1.length<array2.length) {
+            for(int i = 0;i<array1.length;i++) {
+                int temp = array1[i];
+                array1[i]=array2[i];
+                array2[i]=temp;
+            }
+        }else {
+            for(int i = 0;i<array2.length;i++) {
+                int temp = array1[i];
+                array1[i]=array2[i];
+                array2[i]=temp;
+            }
+        }
+    }
+    public static void main_h1(String[] args) {
+        int[] array1 = { 1,2,3,4,5,6,7,8,9,10};
+        int[] array2 = {6,7,8,9,10};
+        System.out.println(Arrays.toString(array1));
+        System.out.println(Arrays.toString(array2));
+        swap(array1,array2);
+        System.out.println(Arrays.toString(array1));
+        System.out.println(Arrays.toString(array2));
+    }
+
+    public static void swap2(int[][] array) {//换引用
         int[] tmp=array[0];
         array[0]=array[1];
         array[1]=tmp;
